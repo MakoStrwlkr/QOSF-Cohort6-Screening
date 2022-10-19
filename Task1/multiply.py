@@ -64,20 +64,7 @@ def multiplier(num1: int, num2: int, verbose: bool = False):
     ####
     for i in range(n1_bits):
         print(i)
-        rot_gate = QuantumCircuit(n1_bits + 2 * n2_bits + 1, name="controlled rotation")
-        for k in range(n2_bits):
-            print(i, k)
-            rot_gate.crz(np.pi / 2 ** (k + 1), k + i, n2_bits + i)
-
-        for qubit in range(n1_bits):
-            for control in range(n1_bits - qubit):
-                print(i, qubit, control)
-                rot_gate.crz(np.pi / 2**control, qubit + control, i + n1_bits + qubit + 1)
-
-        crot_gate = rot_gate.to_gate().control(1)
-        #         if i ==0:
-        qc.append(crot_gate, [n1_bits - i - 1] + [n1_bits + qubit for qubit in range(n1_bits + 2 * n2_bits + 1)])
-        # print(rot_gate)
+        ...
 
     for i in range(n1_bits):
         for j in range(n2_bits):
